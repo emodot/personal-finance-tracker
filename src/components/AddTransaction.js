@@ -30,7 +30,7 @@ const AddTransaction = ({ isOpen, onClose, onAddTransaction }) => {
   if (!isOpen) return null;
   return (
     <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-lg border border-neutral_stroke_2 w-[30%] relative">
+      <div className="bg-white p-6 rounded-lg border border-gray-100 w-[30%] relative">
         <button
           onClick={onClose}
           className="text-gray-500 font-qanelas_b hover:text-error absolute top-4 right-4"
@@ -40,7 +40,6 @@ const AddTransaction = ({ isOpen, onClose, onAddTransaction }) => {
         <h2 className="text-[20px] font-qanelas_b text-center mb-4">
           Add Transaction
         </h2>
-
         <form
           onSubmit={addTransaction}
           className="p-4 bg-white rounded space-y-4"
@@ -104,7 +103,7 @@ const AddTransaction = ({ isOpen, onClose, onAddTransaction }) => {
           </div>
           <button
             type="submit"
-            className="bg-primary_color text-white py-2 px-4 rounded-md"
+            className="bg-[#E21C37] hover:bg-[#47141b] text-white py-2 px-4 rounded-md"
           >
             Add Transaction
           </button>
