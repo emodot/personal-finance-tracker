@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { saveTransactions, loadTransactions } from "./utils/store";
 import AddTransaction from "./components/AddTransaction";
+import TransactionList from "./components/TransactionList";
 
 
 function App() {
@@ -28,10 +29,13 @@ function App() {
         </h1>
         <button
           onClick={openModal}
-          className="bg-primary_color text-white font-qanelas_m px-4 py-2 rounded hover:bg-blue-600"
+          className="bg-[#E21C37] text-white font-qanelas_m px-4 py-2 rounded hover:bg-[#47141b]"
         >
           Add Transaction
         </button>
+      </div>
+      <div>
+        <TransactionList transactions={transactions} />
       </div>
       <AddTransaction
         isOpen={isModalOpen}
