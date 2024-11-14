@@ -26,18 +26,29 @@ const TransactionList = ({ transactions }) => {
     );
   };
     const openFilterModal = () => setIsFilterOpen(true);
-    const closeModal = () => setIsFilterOpen(false);
+    const closeFilterModal = () => setIsFilterOpen(false);
 
   return (
     <div className="mt-4">
-      <Filter onFilterChange={handleFilterChange} />
+      <Filter
+        isOpen={isFilterOpen}
+        onClose={closeFilterModal}
+        onFilterChange={handleFilterChange}
+      />
 
-      <button
-        onClick={openFilterModal}
-        className="bg-[#E21C37] text-white font-qanelas_m px-4 py-2 rounded hover:bg-[#47141b]"
-      >
-        Filter
-      </button>
+      <div className="flex space-x-2">
+        <button
+          onClick={openFilterModal}
+          className="bg-[#E21C37] text-white font-qanelas_m px-4 py-2 rounded hover:bg-[#47141b]"
+        >
+          Filter
+        </button>
+        {/* <button
+          className="text-gray-500 font-qanelas_b hover:text-error"
+        >
+          Clear
+        </button> */}
+      </div>
       <div className="overflow-auto rounded-lg shadow-md mt-4">
         <table className="min-w-full bg-white">
           <thead className="bg-gray-100 border-b-2 border-gray-200">
