@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { saveTransactions, loadTransactions } from "./utils/store";
 import AddTransaction from "./components/AddTransaction";
 import TransactionList from "./components/TransactionList";
+import MetricsChart from "./components/MetricsChart";
 
 
 function App() {
@@ -35,6 +36,9 @@ function App() {
         </button>
       </div>
       <div>
+        <div className="w-[70%] my-[3rem]">
+          <MetricsChart transactions={transactions} />
+        </div>
         <TransactionList transactions={transactions} />
       </div>
       <AddTransaction
