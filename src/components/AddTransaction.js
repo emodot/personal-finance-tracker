@@ -18,11 +18,22 @@ const AddTransaction = ({ isOpen, onClose, onAddTransaction }) => {
     setFormData({
       date: "",
       category: "",
-      type: "income",
+      type: "",
       amount: "",
       notes: "",
     });
   };
+
+  const closeAddTransaction = () => {
+    setFormData({
+      date: "",
+      category: "",
+      type: "",
+      amount: "",
+      notes: "",
+    });
+    onClose()
+  }
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -32,7 +43,7 @@ const AddTransaction = ({ isOpen, onClose, onAddTransaction }) => {
     <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white p-6 rounded-lg border border-gray-100 w-[30%] relative">
         <button
-          onClick={onClose}
+          onClick={() => {closeAddTransaction()}}
           className="text-gray-500 font-qanelas_b hover:text-error absolute top-4 right-4"
         >
           Close
