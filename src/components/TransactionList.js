@@ -25,6 +25,22 @@ const TransactionList = ({ transactions }) => {
       )
     );
   };
+
+
+  const clearFilter = (empty) => {
+    const { type, category, minAmount, maxAmount, startDate, endDate } = empty;
+    setFilteredTransactions(
+      transactions.filter(
+        (t) =>
+          (!type || t.type === type) &&
+          (!category || t.category.includes(category)) &&
+          (!minAmount || t.amount >= minAmount) &&
+          (!maxAmount || t.amount <= maxAmount) &&
+          (!startDate || new Date(t.date) >= new Date(startDate)) &&
+          (!endDate || new Date(t.date) <= new Date(endDate))
+      )
+    );
+  };
     const openFilterModal = () => setIsFilterOpen(true);
     const closeFilterModal = () => setIsFilterOpen(false);
 
@@ -43,11 +59,21 @@ const TransactionList = ({ transactions }) => {
         >
           Filter
         </button>
-        {/* <button
+        <button
+          onClick={() =>
+            clearFilter({
+              type: "",
+              category: "",
+              minAmount: "",
+              maxAmount: "",
+              startDate: "",
+              endDate: "",
+            })
+          }
           className="text-gray-500 font-qanelas_b hover:text-error"
         >
           Clear
-        </button> */}
+        </button>
       </div>
       <div className="overflow-auto rounded-lg shadow-md mt-4">
         <table className="min-w-full bg-white">
